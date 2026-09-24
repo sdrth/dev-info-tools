@@ -1,0 +1,22 @@
+{
+  "name": "dev-info-overlay-workspace",
+  "private": true,
+  "description": "Workspace for the Dev Info Overlay library and examples",
+  "license": "MIT",
+  "packageManager": "pnpm@9.15.9",
+  "scripts": {
+    "test": "pnpm --filter dev-info-overlay test",
+    "typecheck": "pnpm --filter dev-info-overlay typecheck && pnpm --filter vite-react-demo typecheck",
+    "build": "pnpm --filter dev-info-overlay build",
+    "demo": "pnpm --filter vite-react-demo dev",
+    "demo:build": "pnpm --filter vite-react-demo build"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}

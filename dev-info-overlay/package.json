@@ -1,0 +1,86 @@
+{
+  "name": "dev-info-overlay",
+  "version": "1.0.0",
+  "description": "Local-only React overlay for logs, steps, tool calls, and metrics during development",
+  "license": "MIT",
+  "author": "sdrth",
+  "homepage": "https://github.com/sdrth/dev-info-tools#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdrth/dev-info-tools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sdrth/dev-info-tools/issues"
+  },
+  "type": "module",
+  "sideEffects": [
+    "./dist/styles.css",
+    "./src/styles.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./server": {
+      "types": "./dist/server.d.ts",
+      "import": {
+        "types": "./dist/server.d.ts",
+        "default": "./dist/server.js"
+      },
+      "require": {
+        "types": "./dist/server.d.cts",
+        "default": "./dist/server.cjs"
+      }
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist",
+    "skills",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.43",
+    "@types/react": "18.3.31",
+    "@types/react-dom": "18.3.7",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tsup": "8.5.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "typecheck": "tsc --noEmit --pretty false",
+    "test": "node --experimental-strip-types --test \"src/**/*.test.ts\""
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "keywords": [
+    "react",
+    "devtools",
+    "overlay",
+    "ai",
+    "local-development"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

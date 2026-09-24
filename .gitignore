@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Builds / caches
+dist/
+*.tsbuildinfo
+*.tgz
+.vite/
+examples/**/node_modules/.vite/
+examples/**/node_modules/.vite-temp/
+
+# Local scratch / working notes (not for public tree)
+.scratch/
+plans/
+docs/
+.notes/
+*.local.md
+*WORKLOG*
+*worklog*
+*.work.md
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Coverage / logs
+coverage/
+*.log
