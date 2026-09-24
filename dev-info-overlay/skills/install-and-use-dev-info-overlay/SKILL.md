@@ -11,26 +11,13 @@ You are setting up **dev-info-overlay**: a local-only React corner overlay for l
 
 ## Resolve the GitHub base URL
 
-1. If the user pasted a GitHub link, derive:
-
-   - `OWNER` / `REPO` from `https://github.com/OWNER/REPO/...`
-   - `REF` = branch or tag (`main` if unclear)
-
-2. If unknown, ask once. Do **not** invent an owner/repo.
-
-3. Build:
-
-```text
-RAW=https://raw.githubusercontent.com/OWNER/REPO/REF
-```
-
-Example for this project:
+**Default for this project** (use unless the user pointed at a fork/mirror):
 
 ```text
 RAW=https://raw.githubusercontent.com/sdrth/dev-info-tools/main
 ```
 
-If the user pasted a different GitHub link, derive `OWNER` / `REPO` / `REF` from that URL instead.
+If the user pasted a different GitHub link, rebuild `RAW` from that URL’s owner/repo/ref (`main` if the ref is unclear). Do **not** invent an owner/repo. Ask once if unknown.
 
 Canonical instruction pages on GitHub (read these first if browsing the repo):
 
@@ -41,7 +28,7 @@ Canonical instruction pages on GitHub (read these first if browsing the repo):
 Raw form of this skill:
 
 ```text
-$RAW/dev-info-overlay/skills/install-and-use-dev-info-overlay/SKILL.md
+https://raw.githubusercontent.com/sdrth/dev-info-tools/main/dev-info-overlay/skills/install-and-use-dev-info-overlay/SKILL.md
 ```
 
 ---
@@ -79,7 +66,7 @@ Fetch each URL into the matching local path. Prefer `curl -fsSL` (or the environ
 Shell sketch:
 
 ```bash
-RAW="https://raw.githubusercontent.com/OWNER/REPO/REF"
+RAW="https://raw.githubusercontent.com/sdrth/dev-info-tools/main"
 BASE="$RAW/dev-info-overlay"
 for f in copy.ts gate.ts store.ts types.ts useDevInfo.ts DevInfoOverlay.tsx index.ts server.ts styles.css; do
   curl -fsSL "$BASE/src/$f" -o "vendor/dev-info-overlay/$f"
@@ -90,7 +77,7 @@ curl -fsSL "$BASE/skills/install-and-use-dev-info-overlay/SKILL.md" \
   -o ".agents/skills/install-and-use-dev-info-overlay/SKILL.md"
 ```
 
-If a download fails (404), stop and fix `OWNER`/`REPO`/`REF`. Never invent replacement source.
+If a download fails (404), stop and fix `RAW` (branch/tag or fork). Never invent replacement source.
 
 ### 3. Alias imports (keep the `"dev-info-overlay"` specifier)
 

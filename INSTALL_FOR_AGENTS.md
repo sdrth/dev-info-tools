@@ -13,7 +13,7 @@ A local-only React overlay for **logs · steps · tool calls · metrics** during
 ## What agents should do
 
 1. Open this file or the install skill on GitHub.
-2. Use the raw base below (or derive `OWNER` / `REPO` / `REF` from the page URL).
+2. Use the raw base below (`https://raw.githubusercontent.com/sdrth/dev-info-tools/main`). Only rebuild from a pasted GitHub URL if it points at a fork/mirror.
 3. Follow **Mode GITHUB** in the install skill — download listed files into `vendor/dev-info-overlay/`.
 4. Wire aliases, mount `<DevInfoOverlay enabled={…} />`, gate with `DEV_INFO_OVERLAY=1`.
 5. Keep the skills in the host repo so future agents reuse the workflow.
